@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Reflect,">
 
 
 
@@ -80,16 +80,16 @@
 
 
 <meta name="description" content="Reflect概述Reflect对象与Proxy对象一样，也是 ES6 为了操作对象而提供的新 API。Reflect对象的设计目的有这样几个。 （1） 将Object对象的一些明显属于语言内部的方法（比如Object.defineProperty），放到Reflect对象上。现阶段，某些方法同时在Object和Reflect对象上部署，未来的新方法将只部署在Reflect对象上。也就是说，从Re">
-<meta name="keywords" content="woo，吴映才，个人空间，技术">
+<meta name="keywords" content="Reflect">
 <meta property="og:type" content="article">
-<meta property="og:title" content="woo的部落">
+<meta property="og:title" content="Reflect">
 <meta property="og:url" content="http://yoursite.com/2019/06/20/reflect/index.html">
 <meta property="og:site_name" content="woo的部落">
 <meta property="og:description" content="Reflect概述Reflect对象与Proxy对象一样，也是 ES6 为了操作对象而提供的新 API。Reflect对象的设计目的有这样几个。 （1） 将Object对象的一些明显属于语言内部的方法（比如Object.defineProperty），放到Reflect对象上。现阶段，某些方法同时在Object和Reflect对象上部署，未来的新方法将只部署在Reflect对象上。也就是说，从Re">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-01-22T14:17:33.189Z">
+<meta property="og:updated_time" content="2019-06-25T07:22:25.170Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="woo的部落">
+<meta name="twitter:title" content="Reflect">
 <meta name="twitter:description" content="Reflect概述Reflect对象与Proxy对象一样，也是 ES6 为了操作对象而提供的新 API。Reflect对象的设计目的有这样几个。 （1） 将Object对象的一些明显属于语言内部的方法（比如Object.defineProperty），放到Reflect对象上。现阶段，某些方法同时在Object和Reflect对象上部署，未来的新方法将只部署在Reflect对象上。也就是说，从Re">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title> | woo的部落</title>
+  <title>Reflect | woo的部落</title>
   
 
 
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Reflect</h1>
         
 
         <div class="post-meta">
@@ -302,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -442,6 +464,9 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> queuedObservers = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> observe = <span class="function"><span class="params">fn</span> =&gt;</span> queuedObservers.add(fn);</span><br><span class="line"><span class="keyword">const</span> observable = <span class="function"><span class="params">obj</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj, &#123;<span class="keyword">set</span>&#125;);</span><br><span class="line"></span><br><span class="line">function <span class="keyword">set</span>(target, key, value, receiver) &#123;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="built_in">Reflect</span>.set(target, key, value, receiver);</span><br><span class="line">  queuedObservers.forEach(<span class="function"><span class="params">observer</span> =&gt;</span> observer());</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面代码中，先定义了一个<code>Set</code>集合，所有观察者函数都放进这个集合。然后，<code>observable</code>函数返回原始对象的代理，拦截赋值操作。拦截函数<code>set</code>之中，会自动执行所有观察者。</p>
+<blockquote>
+<p>本知识转载于阮一峰老师的<a href="http://es6.ruanyifeng.com/," title="ECMAScript 6 入门" target="_blank" rel="noopener">《ECMAScript 6 入门》</a>,内容未作出任何变更，如有疑问请直接查看原文，原文已有更新。</p>
+</blockquote>
 
       
     </div>
@@ -457,6 +482,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Reflect/" rel="tag"># Reflect</a>
+          
+        </div>
+      
 
       
       
@@ -466,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/20/proxy/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/06/20/proxy/" rel="next" title="Proxy">
+                <i class="fa fa-chevron-left"></i> Proxy
               </a>
             
           </div>
@@ -476,8 +507,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/20/regex/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/20/regex/" rel="prev" title="正则的扩展">
+                正则的扩展 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,7 +586,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -566,7 +597,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -577,7 +608,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

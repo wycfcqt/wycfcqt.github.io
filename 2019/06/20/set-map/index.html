@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Set Map,">
 
 
 
@@ -80,16 +80,16 @@
 
 
 <meta name="description" content="Set和Map数据结构Set基本用法ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。 Set本身是一个构造函数，用来生成Set数据结构。 12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#1">
-<meta name="keywords" content="woo，吴映才，个人空间，技术">
+<meta name="keywords" content="Set Map">
 <meta property="og:type" content="article">
-<meta property="og:title" content="woo的部落">
+<meta property="og:title" content="Set和Map数据结构">
 <meta property="og:url" content="http://yoursite.com/2019/06/20/set-map/index.html">
 <meta property="og:site_name" content="woo的部落">
 <meta property="og:description" content="Set和Map数据结构Set基本用法ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。 Set本身是一个构造函数，用来生成Set数据结构。 12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-01-22T14:17:33.190Z">
+<meta property="og:updated_time" content="2019-06-25T07:22:54.047Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="woo的部落">
+<meta name="twitter:title" content="Set和Map数据结构">
 <meta name="twitter:description" content="Set和Map数据结构Set基本用法ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。 Set本身是一个构造函数，用来生成Set数据结构。 12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#1">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title> | woo的部落</title>
+  <title>Set和Map数据结构 | woo的部落</title>
   
 
 
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Set和Map数据结构</h1>
         
 
         <div class="post-meta">
@@ -302,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -591,6 +613,9 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> _counter = <span class="keyword">new</span> <span class="built_in">WeakMap</span>();</span><br><span class="line"><span class="keyword">let</span> _action = <span class="keyword">new</span> <span class="built_in">WeakMap</span>();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Countdown</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(counter, action) &#123;</span><br><span class="line">    _counter.set(<span class="keyword">this</span>, counter);</span><br><span class="line">    _action.set(<span class="keyword">this</span>, action);</span><br><span class="line">  &#125;</span><br><span class="line">  dec() &#123;</span><br><span class="line">    <span class="keyword">let</span> counter = _counter.get(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">if</span> (counter &lt; <span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">    counter--;</span><br><span class="line">    _counter.set(<span class="keyword">this</span>, counter);</span><br><span class="line">    <span class="keyword">if</span> (counter === <span class="number">0</span>) &#123;</span><br><span class="line">      _action.get(<span class="keyword">this</span>)();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = <span class="keyword">new</span> Countdown(<span class="number">2</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">'DONE'</span>));</span><br><span class="line"></span><br><span class="line">c.dec()</span><br><span class="line">c.dec()</span><br><span class="line"><span class="comment">// DONE</span></span><br></pre></td></tr></table></figure>
 
 <p>上面代码中，Countdown类的两个内部属性<code>_counter</code>和<code>_action</code>，是实例的弱引用，所以如果删除实例，它们也就随之消失，不会造成内存泄漏。</p>
+<blockquote>
+<p>本知识转载于阮一峰老师的<a href="http://es6.ruanyifeng.com/," title="ECMAScript 6 入门" target="_blank" rel="noopener">《ECMAScript 6 入门》</a>,内容未作出任何变更，如有疑问请直接查看原文，原文已有更新。</p>
+</blockquote>
 
       
     </div>
@@ -606,6 +631,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Set-Map/" rel="tag"># Set Map</a>
+          
+        </div>
+      
 
       
       
@@ -615,8 +646,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/20/regex/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/06/20/regex/" rel="next" title="正则的扩展">
+                <i class="fa fa-chevron-left"></i> 正则的扩展
               </a>
             
           </div>
@@ -625,8 +656,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/20/simd/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/20/simd/" rel="prev" title="SIMD">
+                SIMD <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -704,7 +735,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -715,7 +746,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -726,7 +757,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="SIMD,">
 
 
 
@@ -80,16 +80,16 @@
 
 
 <meta name="description" content="SIMD概述SIMD（发音/sim-dee/）是“Single Instruction/Multiple Data”的缩写，意为“单指令，多数据”。它是JavaScript操作CPU对应指令的接口，你可以看做这是一种不同的运算执行模式。与它相对的是SISD（“Single Instruction/Single Data”），即“单指令，单数据”。 SIMD的含义是使用一个指令，完成多个数据的运算；">
-<meta name="keywords" content="woo，吴映才，个人空间，技术">
+<meta name="keywords" content="SIMD">
 <meta property="og:type" content="article">
-<meta property="og:title" content="woo的部落">
+<meta property="og:title" content="SIMD">
 <meta property="og:url" content="http://yoursite.com/2019/06/20/simd/index.html">
 <meta property="og:site_name" content="woo的部落">
 <meta property="og:description" content="SIMD概述SIMD（发音/sim-dee/）是“Single Instruction/Multiple Data”的缩写，意为“单指令，多数据”。它是JavaScript操作CPU对应指令的接口，你可以看做这是一种不同的运算执行模式。与它相对的是SISD（“Single Instruction/Single Data”），即“单指令，单数据”。 SIMD的含义是使用一个指令，完成多个数据的运算；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-01-22T14:17:33.191Z">
+<meta property="og:updated_time" content="2019-06-25T07:23:20.007Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="woo的部落">
+<meta name="twitter:title" content="SIMD">
 <meta name="twitter:description" content="SIMD概述SIMD（发音/sim-dee/）是“Single Instruction/Multiple Data”的缩写，意为“单指令，多数据”。它是JavaScript操作CPU对应指令的接口，你可以看做这是一种不同的运算执行模式。与它相对的是SISD（“Single Instruction/Single Data”），即“单指令，单数据”。 SIMD的含义是使用一个指令，完成多个数据的运算；">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title> | woo的部落</title>
+  <title>SIMD | woo的部落</title>
   
 
 
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">SIMD</h1>
         
 
         <div class="post-meta">
@@ -302,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -560,6 +582,9 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">average</span>(<span class="params">list</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n = list.length;</span><br><span class="line">  <span class="keyword">var</span> sum = SIMD.Float32x4.splat(<span class="number">0.0</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; n; i += <span class="number">4</span>) &#123;</span><br><span class="line">    sum = SIMD.Float32x4.add(</span><br><span class="line">      sum,</span><br><span class="line">      SIMD.Float32x4.load(list, i)</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> total = SIMD.Float32x4.extractLane(sum, <span class="number">0</span>) +</span><br><span class="line">              SIMD.Float32x4.extractLane(sum, <span class="number">1</span>) +</span><br><span class="line">              SIMD.Float32x4.extractLane(sum, <span class="number">2</span>) +</span><br><span class="line">              SIMD.Float32x4.extractLane(sum, <span class="number">3</span>);</span><br><span class="line">  <span class="keyword">return</span> total / n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面代码先是每隔四位，将所有的值读入一个SIMD，然后立刻累加。然后，得到累加值四个通道的总和，再除以<code>n</code>就可以了。</p>
+<blockquote>
+<p>本知识转载于阮一峰老师的<a href="http://es6.ruanyifeng.com/," title="ECMAScript 6 入门" target="_blank" rel="noopener">《ECMAScript 6 入门》</a>,内容未作出任何变更，如有疑问请直接查看原文，原文已有更新。</p>
+</blockquote>
 
       
     </div>
@@ -575,6 +600,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/SIMD/" rel="tag"># SIMD</a>
+          
+        </div>
+      
 
       
       
@@ -584,8 +615,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/20/set-map/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/06/20/set-map/" rel="next" title="Set和Map数据结构">
+                <i class="fa fa-chevron-left"></i> Set和Map数据结构
               </a>
             
           </div>
@@ -594,8 +625,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/20/spec/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/20/spec/" rel="prev" title="ECMAScript 规格">
+                ECMAScript 规格 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -673,7 +704,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -684,7 +715,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -695,7 +726,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

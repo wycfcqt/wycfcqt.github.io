@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ECMAScript 规格,">
 
 
 
@@ -80,16 +80,16 @@
 
 
 <meta name="description" content="读懂 ECMAScript 规格概述规格文件是计算机语言的官方标准，详细描述语法规则和实现方法。 一般来说，没有必要阅读规格，除非你要写编译器。因为规格写得非常抽象和精炼，又缺乏实例，不容易理解，而且对于解决实际的应用问题，帮助不大。但是，如果你遇到疑难的语法问题，实在找不到答案，这时可以去查看规格文件，了解语言标准是怎么说的。规格是解决问题的“最后一招”。 这对JavaScript语言很有必要。">
-<meta name="keywords" content="woo，吴映才，个人空间，技术">
+<meta name="keywords" content="ECMAScript 规格">
 <meta property="og:type" content="article">
-<meta property="og:title" content="woo的部落">
+<meta property="og:title" content="ECMAScript 规格">
 <meta property="og:url" content="http://yoursite.com/2019/06/20/spec/index.html">
 <meta property="og:site_name" content="woo的部落">
 <meta property="og:description" content="读懂 ECMAScript 规格概述规格文件是计算机语言的官方标准，详细描述语法规则和实现方法。 一般来说，没有必要阅读规格，除非你要写编译器。因为规格写得非常抽象和精炼，又缺乏实例，不容易理解，而且对于解决实际的应用问题，帮助不大。但是，如果你遇到疑难的语法问题，实在找不到答案，这时可以去查看规格文件，了解语言标准是怎么说的。规格是解决问题的“最后一招”。 这对JavaScript语言很有必要。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-01-22T14:17:33.191Z">
+<meta property="og:updated_time" content="2019-06-25T07:23:30.325Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="woo的部落">
+<meta name="twitter:title" content="ECMAScript 规格">
 <meta name="twitter:description" content="读懂 ECMAScript 规格概述规格文件是计算机语言的官方标准，详细描述语法规则和实现方法。 一般来说，没有必要阅读规格，除非你要写编译器。因为规格写得非常抽象和精炼，又缺乏实例，不容易理解，而且对于解决实际的应用问题，帮助不大。但是，如果你遇到疑难的语法问题，实在找不到答案，这时可以去查看规格文件，了解语言标准是怎么说的。规格是解决问题的“最后一招”。 这对JavaScript语言很有必要。">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title> | woo的部落</title>
+  <title>ECMAScript 规格 | woo的部落</title>
   
 
 
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">ECMAScript 规格</h1>
         
 
         <div class="post-meta">
@@ -302,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -454,6 +476,9 @@
 <p>V8引擎对<code>map</code>方法的<a href="https://github.com/v8/v8/blob/44c44521ae11859478b42004f57ea93df52526ee/src/js/array.js#L1347" target="_blank" rel="noopener">实现</a>如下，可以看到跟规格的算法描述完全一致。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ArrayMap</span>(<span class="params">f, receiver</span>) </span>&#123;</span><br><span class="line">  CHECK_OBJECT_COERCIBLE(<span class="keyword">this</span>, <span class="string">"Array.prototype.map"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Pull out the length so that modifications to the length in the</span></span><br><span class="line">  <span class="comment">// loop will not affect the looping and side effects are visible.</span></span><br><span class="line">  <span class="keyword">var</span> array = TO_OBJECT(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">var</span> length = TO_LENGTH_OR_UINT32(array.length);</span><br><span class="line">  <span class="keyword">return</span> InnerArrayMap(f, receiver, array, length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">InnerArrayMap</span>(<span class="params">f, receiver, array, length</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!IS_CALLABLE(f)) <span class="keyword">throw</span> MakeTypeError(kCalledNonCallable, f);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> accumulator = <span class="keyword">new</span> InternalArray(length);</span><br><span class="line">  <span class="keyword">var</span> is_array = IS_ARRAY(array);</span><br><span class="line">  <span class="keyword">var</span> stepping = DEBUG_IS_STEPPING(f);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (HAS_INDEX(array, i, is_array)) &#123;</span><br><span class="line">      <span class="keyword">var</span> element = array[i];</span><br><span class="line">      <span class="comment">// Prepare break slots for debugger step in.</span></span><br><span class="line">      <span class="keyword">if</span> (stepping) %DebugPrepareStepInIfStepping(f);</span><br><span class="line">      accumulator[i] = %_Call(f, receiver, element, i, array);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="keyword">new</span> GlobalArray();</span><br><span class="line">  %MoveArrayContents(accumulator, result);</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>本知识转载于阮一峰老师的<a href="http://es6.ruanyifeng.com/," title="ECMAScript 6 入门" target="_blank" rel="noopener">《ECMAScript 6 入门》</a>,内容未作出任何变更，如有疑问请直接查看原文，原文已有更新。</p>
+</blockquote>
 
       
     </div>
@@ -469,6 +494,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ECMAScript-规格/" rel="tag"># ECMAScript 规格</a>
+          
+        </div>
+      
 
       
       
@@ -478,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/20/simd/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/06/20/simd/" rel="next" title="SIMD">
+                <i class="fa fa-chevron-left"></i> SIMD
               </a>
             
           </div>
@@ -488,8 +519,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/20/string/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/20/string/" rel="prev" title="字符串的扩展">
+                字符串的扩展 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -567,7 +598,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -578,7 +609,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -589,7 +620,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

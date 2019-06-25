@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="编程风格,">
 
 
 
@@ -80,16 +80,16 @@
 
 
 <meta name="description" content="编程风格本章探讨如何将ES6的新语法，运用到编码实践之中，与传统的JavaScript语法结合在一起，写出合理的、易于阅读和维护的代码。 多家公司和组织已经公开了它们的风格规范，具体可参阅jscs.info，下面的内容主要参考了Airbnb的JavaScript风格规范。 块级作用域（1）let 取代 var ES6提出了两个新的声明变量的命令：let和const。其中，let完全可以取代var，">
-<meta name="keywords" content="woo，吴映才，个人空间，技术">
+<meta name="keywords" content="编程风格">
 <meta property="og:type" content="article">
-<meta property="og:title" content="woo的部落">
+<meta property="og:title" content="编程风格">
 <meta property="og:url" content="http://yoursite.com/2019/06/20/style/index.html">
 <meta property="og:site_name" content="woo的部落">
 <meta property="og:description" content="编程风格本章探讨如何将ES6的新语法，运用到编码实践之中，与传统的JavaScript语法结合在一起，写出合理的、易于阅读和维护的代码。 多家公司和组织已经公开了它们的风格规范，具体可参阅jscs.info，下面的内容主要参考了Airbnb的JavaScript风格规范。 块级作用域（1）let 取代 var ES6提出了两个新的声明变量的命令：let和const。其中，let完全可以取代var，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-01-22T14:17:33.192Z">
+<meta property="og:updated_time" content="2019-06-25T07:24:03.574Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="woo的部落">
+<meta name="twitter:title" content="编程风格">
 <meta name="twitter:description" content="编程风格本章探讨如何将ES6的新语法，运用到编码实践之中，与传统的JavaScript语法结合在一起，写出合理的、易于阅读和维护的代码。 多家公司和组织已经公开了它们的风格规范，具体可参阅jscs.info，下面的内容主要参考了Airbnb的JavaScript风格规范。 块级作用域（1）let 取代 var ES6提出了两个新的声明变量的命令：let和const。其中，let完全可以取代var，">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title> | woo的部落</title>
+  <title>编程风格 | woo的部落</title>
   
 
 
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">编程风格</h1>
         
 
         <div class="post-meta">
@@ -302,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -443,6 +465,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ eslint index.js</span><br><span class="line">index.js</span><br><span class="line">  1:5  error  unusued is defined but never used                 no-unused-vars</span><br><span class="line">  4:5  error  Expected indentation of 2 characters but found 4  indent</span><br><span class="line">  5:5  error  Expected indentation of 2 characters but found 4  indent</span><br><span class="line"></span><br><span class="line">✖ 3 problems (3 errors, 0 warnings)</span><br></pre></td></tr></table></figure>
 
 <p>上面代码说明，原文件有三个错误，一个是定义了变量，却没有使用，另外两个是行首缩进为4个空格，而不是规定的2个空格。</p>
+<blockquote>
+<p>本知识转载于阮一峰老师的<a href="http://es6.ruanyifeng.com/," title="ECMAScript 6 入门" target="_blank" rel="noopener">《ECMAScript 6 入门》</a>,内容未作出任何变更，如有疑问请直接查看原文，原文已有更新。</p>
+</blockquote>
 
       
     </div>
@@ -458,6 +483,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/编程风格/" rel="tag"># 编程风格</a>
+          
+        </div>
+      
 
       
       
@@ -467,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/20/string/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/06/20/string/" rel="next" title="字符串的扩展">
+                <i class="fa fa-chevron-left"></i> 字符串的扩展
               </a>
             
           </div>
@@ -477,8 +508,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/20/symbol/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/20/symbol/" rel="prev" title="Symbol">
+                Symbol <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -556,7 +587,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -567,7 +598,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -578,7 +609,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
